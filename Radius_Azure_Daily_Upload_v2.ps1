@@ -43,7 +43,8 @@ param (
        [string]$ScheduleDir,
        [string]$DataSourceDir,
        [string]$debug,
-       [string]$scriptID=$pid, 
+       [string]$scriptID=$pid,
+       [string]$azureCLIDir, 
        [string]$azureHost = "https://radiuscommsnowflakesa.blob.core.windows.net/",
        [string]$azureBase = "radiuscommsnowflakestage/",
        [string]$azureDataSourceDir = $azureHost + $azureBase + $i_data_source + "/",
@@ -65,6 +66,7 @@ else {$BaseDir = "/Users/michaelbarrett"
         $DataDir = $BaseDir +  "/DATA"
         $ScheduleDir = $DataDir + "/Radius_Daily"
         $DataSourceDir = $ScheduleDir + "/" + $i_data_source
+        $azureCLIDir = $BaseDir + "/" + "Applications"
        }
 
 If ($debug = "Y") {
@@ -104,7 +106,7 @@ write-output  "# $timestamp Data Source being processed is $i_data_source"
 write-output  "#"
 write-output  "############################################################################################################"
 
-exit
+
 # [MPB] Shouldn't have to do this.....
 #cd C:\Data\azcopy_windows_amd64_10.27.1
 
